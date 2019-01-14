@@ -2,14 +2,25 @@
 <html>
 <body>
 
-<h1>My First Heading</h1>
+<h1>Welcome to the Group 5 Calendar!</h1>
 
-<p>My first paragraph.</p>
+<h2 id='month'></h2>
+<hr></hr>
 
 <form action="/action_page.php" method="get" id="form1">
   First name: <input type="text" name="fname"><br>
   Last name: <input type="text" name="lname"><br>
 </form>
+
+<script>
+window.onload = function myFunction() {
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var d = new Date();
+  var n = d.getMonth();
+  document.getElementById("month").innerHTML = months[n];
+}
+</script>
+
 
 <button type="submit" form="form1" value="Submit">Submit</button>
 

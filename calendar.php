@@ -113,6 +113,35 @@ td { width:100px; height:100px; text-align: right; border: 1px solid black; bord
   </tr>
 </table>
 
+<!-- Code from Yiming -->
+<form action="">
+New Event:<br>
+<input type="text" name="name">
+<br>
+Starting Date (YYYY/MM/DD):<br>
+<input type="text" name="start_date">
+<br>
+Starting Time (Hour):<br>
+<input type="text" name="start_hour">
+<br>
+Starting Time (Minutes):<br>
+<input type="text" name="start_minute">
+<br>
+Ending Date (YYYY/MM/DD):<br>
+<input type="text" name="end_date">
+<br>
+Ending Time (Hour):<br>
+<input type="text" name="end_hour">
+<br>
+Ending Time (Minutes):<br>
+<input type="text" name="end_minute">
+<br>
+Description:<br>
+<input type="text" name="description">
+<br>
+</form>
+<input type="submit" value="submit"><br>
+<br><br>
 
 <?php
 $server = "ix.cs.uoregon.edu";
@@ -124,14 +153,45 @@ $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error conn
 
 $query = "SELECT * FROM calendar.month";
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
-
+echo "Months:<br>";
 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH))
 {
-	echo "<tr>";
-	echo "<td>".$row['name']."</td>";
-	echo "</tr>";
+	echo $row['name'];
+	echo "<br>";
 }
-echo "</table>";
+echo "<br>";
+
+$query = "SELECT * FROM calendar.event";
+$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
+echo "Events:<br>";
+while ($row = mysqli_fetch_array($result, MYSQLI_BOTH))
+{
+	echo "Event name: ";
+	echo $row['name'];
+	echo "<br>Start date: ";
+	echo $row['start_date'];
+	echo "<br>";
+	echo "Start time: ";
+	echo $row['start_hour'];
+	echo ":";
+	if ($row['start_minute'] == 0)
+		echo "00";
+	else
+		echo $row['start_minute'];
+	echo "<br>";
+	echo "End date: ";
+	echo $row['end_date'];
+	echo "<br>";
+	echo "End time: ";
+	echo $row['end_hour'];
+	echo ":";
+	echo $row['end_minute'];
+	echo "<br>";
+	echo "Description: ";
+	echo $row['description'];
+}
+echo "<br>";
+
 mysqli_free_result($result);
 mysqli_close($conn);
 ?>

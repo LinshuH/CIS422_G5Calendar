@@ -122,7 +122,7 @@ $dbname = "calendar";
 $port = "3728";
 $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error connecting to MySQL server.');
 
-$query = "SELECT * FROM calendar.months";
+$query = "SELECT * FROM calendar.month";
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 
 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH))

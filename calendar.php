@@ -76,6 +76,37 @@ for ($i = 1; $i <= $month['days_after']; $i++)
 echo "</tr>";
 echo "</table>";
 
+$query = "SELECT * FROM calendar.event";
+$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
+echo "Events:<br>";
+while ($row = mysqli_fetch_array($result, MYSQLI_BOTH))
+{
+        echo "Event name: ";
+        echo $row['name'];
+        echo "<br>Start date: ";
+        echo $row['start_date'];
+        echo "<br>";
+        echo "Start time: ";
+        echo $row['start_hour'];
+        echo ":";
+        if ($row['start_minute'] == 0)
+                echo "00";
+        else
+                echo $row['start_minute'];
+        echo "<br>";
+        echo "End date: ";
+        echo $row['end_date'];
+        echo "<br>";
+        echo "End time: ";
+        echo $row['end_hour'];
+        echo ":";
+        echo $row['end_minute'];
+        echo "<br>";
+        echo "Description: ";
+        echo $row['description'];
+}
+echo "<br>";
+
 mysqli_free_result($result);
 mysqli_close($conn);
 ?>

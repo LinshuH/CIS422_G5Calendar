@@ -22,7 +22,7 @@ $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error conn
 session_start();
 
 # Query to get previous month info
-$pm = 0;
+$pm = $_SESSION['pm'];
 $_SESSION['pm'] = $pm;
 $pm = $_SESSION['pm'];
 $query = "SELECT * FROM calendar.month WHERE month_id = ".$pm;
@@ -30,7 +30,7 @@ $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $prev_month = mysqli_fetch_array($result, MYSQLI_BOTH);
 
 # Query to get next month info
-$cm = 1;
+$cm = $_SESSION['cm'];
 $_SESSION['cm'] = $cm;
 $cm = $_SESSION['cm'];
 $query = "SELECT * FROM calendar.month WHERE month_id = ".$cm;

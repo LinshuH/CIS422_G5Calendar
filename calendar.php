@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <!-- Authors: Holly -->
-<!-- This PHP file displays a calendar -->
+<!-- This PHP file displays a calendar and implements use of buttons -->
 <!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
 <html>
 <body>
 
-<!-- Style for calendar 'table' -->
+<!-- Style for calendar -->
 <style>
 table { width:75%; height:75%; border-collapse: collapse; }
 th { text-align: right; }
@@ -22,20 +22,18 @@ $port = "3728";
 
 # Open database connection
 $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error connecting to MySQL server.');
+
+# Start new session
 session_start();
 
 # Query to get previous month info
 $pm = 0;
-$_SESSION['pm'] = $pm;
-$pm = $_SESSION['pm'];
 $query = "SELECT * FROM calendar.month WHERE month_id = ".$pm;
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $prev_month = mysqli_fetch_array($result, MYSQLI_BOTH);
 
 # Query to get current month info
 $cm = 1;
-$_SESSION['cm'] = $cm;
-$cm = $_SESSION['cm'];
 $query = "SELECT * FROM calendar.month WHERE month_id = ".$cm;
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $month = mysqli_fetch_array($result, MYSQLI_BOTH);
@@ -45,14 +43,14 @@ echo "<font size ='16'><b>".$month['name']."</b> ".$month['year']."</font>";
 
 # Display the day names
 echo "<table>";
-echo   "<tr>";
-echo     "<th>Sun</th>";
-echo     "<th>Mon</th>";
-echo     "<th>Tue</th>";
-echo     "<th>Wed</th>";
-echo     "<th>Thu</th>";
-echo     "<th>Fri</th>";
-echo     "<th>Sat</th>";
+echo "<tr>";
+echo "<th>Sun</th>";
+echo "<th>Mon</th>";
+echo "<th>Tue</th>";
+echo "<th>Wed</th>";
+echo "<th>Thu</th>";
+echo "<th>Fri</th>";
+echo "<th>Sat</th>";
 echo  "</tr>";
 
 # Display the days in the previous month

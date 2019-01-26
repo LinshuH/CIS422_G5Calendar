@@ -87,7 +87,7 @@ mysqli_close($conn);
 ?>
 
 <!-- Get Information for Adding an Event -->
-<form action="calendar.php" method ="POST">
+<form action="AddEvent.php" method ="POST">
 New Event:<br><input type="text" name="name"><br>
 Starting Date (YYYY/MM/DD):<br><input type="text" name="start_date"><br>
 Starting Time (Hour):<br><input type="text" name="start_hour"><br>

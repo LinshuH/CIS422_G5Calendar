@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Authors: Holly -->
-<!-- This PHP file displays a calendar and implements use of buttons -->
+<!-- This PHP file displays a calendar and adds an event -->
 <!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
 <html>
 <body>

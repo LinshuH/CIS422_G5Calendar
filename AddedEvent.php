@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<!-- Authors: Holly -->
+<!-- This PHP file displays a calendar and displays after an event is added -->
 <!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
-<!-- Reference: Egerton, John. URL: https://stackoverflow.com/questions/7992198/html-how-to-make-2-tables-with-different-css -->
 <html>
 <body>
 
-<!-- Style for calednar 'table' -->
+<!-- Style for calendar -->
 <style>
 table { width:75%; height:75%; border-collapse: collapse; }
 th { text-align: right; }
@@ -18,18 +19,20 @@ $user = "guest";
 $pass = "guest";
 $dbname = "calendar";
 $port = "3728";
+
+# Open database connection
 $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error connecting to MySQL server.');
-session_start();
 
-
+# Create an event id for database purposes
 $id = 1;
 $query = "SELECT * FROM calendar.event";
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 while ($row = mysqli_fetch_array($result, MYSQLI_BOTH))
 {
-	$id = $id + 1;
+        $id = $id + 1;
 }
 
+# Get information from previous page
 $name = $_POST['name'];
 $name = mysqli_real_escape_string($conn, $name);
 $start_date = $_POST['start_date'];
@@ -47,8 +50,8 @@ $end_minute = mysqli_real_escape_string($conn, $end_minute);
 $description = $_POST['description'];
 $description = mysqli_real_escape_string($conn, $description);
 
+# Insert event into table
 $sql = "INSERT INTO `calendar`.`event` (`event_id`, `name`, `start_date`, `start_hour`, `start_minute`, `end_date`, `end_hour`, `end_minute`, `description`) VALUES ('$id', '$name', '$start_date', '$start_hour', '$start_minute', '$end_date', '$end_hour', '$end_minute', '$description');";
-
 $conn->query($sql);
 ?>
 
@@ -59,22 +62,23 @@ $user = "guest";
 $pass = "guest";
 $dbname = "calendar";
 $port = "3728";
+
+# Open database connection
 $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error connecting to MySQL server.');
+
+# Start new session
 session_start();
 
 # Query to get previous month info
 $pm = $_SESSION['pm'];
-$_SESSION['cm'] = $cm;
 $_SESSION['pm'] = $pm;
-$pm = $_SESSION['pm'];
 $query = "SELECT * FROM calendar.month WHERE month_id = ".$pm;
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $prev_month = mysqli_fetch_array($result, MYSQLI_BOTH);
 
-# Query to get next month info
+# Query to get current month info
 $cm = $_SESSION['cm'];
 $_SESSION['cm'] = $cm;
-$cm = $_SESSION['cm'];
 $query = "SELECT * FROM calendar.month WHERE month_id = ".$cm;
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $month = mysqli_fetch_array($result, MYSQLI_BOTH);
@@ -92,32 +96,35 @@ echo "<th>Wed</th>";
 echo "<th>Thu</th>";
 echo "<th>Fri</th>";
 echo "<th>Sat</th>";
-echo"</tr>";
+echo  "</tr>";
 
 # Display the days in the previous month
 echo "<tr>";
 for ($i = ($prev_month['num_days'] - $month['days_before']) + 1; $i <= $prev_month['num_days']; $i++)
 {
-	echo "<td><font color='grey'>".$i."</font></td>";
+    echo "<td><font color='grey'>".$i."</font></td>";
 }
+
 # Display the days in the current month
 for ($i = 1; $i <= $month['num_days']; $i++)
 {
-	if (($month['days_before'] + $i - 1) % 7 == 0)
-	{
-		echo "</tr>";
-		echo "<tr>";
-	}
-	echo "<td>".$i."</td>";
+    if (($month['days_before'] + $i - 1) % 7 == 0)
+    {
+        echo "</tr>";
+        echo "<tr>";
+    }
+    echo "<td>".$i."</td>";
 }
+
 # Display the days in the next month
 for ($i = 1; $i <= $month['days_after']; $i++)
 {
-	echo "<td><font color='grey'>".$i."</font></td>";
+    echo "<td><font color='grey'>".$i."</font></td>";
 }
 echo "</tr>";
 echo "</table>";
 
+# Close database connection
 mysqli_free_result($result);
 mysqli_close($conn);
 ?>

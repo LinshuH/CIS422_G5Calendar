@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Authors: Holly -->
-<!-- This PHP file displays a calendar and adds an event -->
+<!-- This PHP file displays a calendar and implements use of buttons -->
 <!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
 <html>
 <body>
@@ -34,8 +34,8 @@ $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $prev_month = mysqli_fetch_array($result, MYSQLI_BOTH);
 
 # Query to get current month info
-$_SESSION['cm'] = $cm;
 $cm = $_SESSION['cm'];
+$_SESSION['cm'] = $cm;
 $query = "SELECT * FROM calendar.month WHERE month_id = ".$cm;
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $month = mysqli_fetch_array($result, MYSQLI_BOTH);
@@ -87,7 +87,7 @@ mysqli_close($conn);
 ?>
 
 <!-- Get Information for Adding an Event -->
-<form action="AddedEvent.php" method ="POST">
+<form action="calendar.php" method ="POST">
 New Event:<br><input type="text" name="name"><br>
 Starting Date (YYYY/MM/DD):<br><input type="text" name="start_date"><br>
 Starting Time (Hour):<br><input type="text" name="start_hour"><br>

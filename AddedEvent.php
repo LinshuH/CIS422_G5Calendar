@@ -83,6 +83,13 @@ $query = "SELECT * FROM calendar.month WHERE month_id = ".$cm;
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $month = mysqli_fetch_array($result, MYSQLI_BOTH);
 
+# Query to get next month info
+$nm = $_SESSION['nm'];
+$_SESSION['nm'] = $nm;
+$query = "SELECT * FROM calendar.month WHERE month_id = ".$nm;
+$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
+$month = mysqli_fetch_array($result, MYSQLI_BOTH);
+
 # Display the month and year
 echo "<font size ='16'><b>".$month['name']."</b> ".$month['year']."</font>";
 
@@ -102,7 +109,15 @@ echo  "</tr>";
 echo "<tr>";
 for ($i = ($prev_month['num_days'] - $month['days_before']) + 1; $i <= $prev_month['num_days']; $i++)
 {
-    echo "<td><font color='grey'>".$i."</font></td>";
+    echo "<td><font color='grey'>".$i;
+
+    $query1 = "SELECT * FROM calendar.event WHERE start_date = '".$prev_month['year']."-".$prev_month['month']."-".$i."'";
+    $result1 = mysqli_query($conn, $query1) or die (mysqli_error($conn));
+    while ($event1 = mysqli_fetch_array($result1, MYSQLI_BOTH))
+    {
+        echo "<p align='left'>".$event1['name']."</p>";
+    }
+    echo "</font></td>";
 }
 
 # Display the days in the current month
@@ -113,13 +128,28 @@ for ($i = 1; $i <= $month['num_days']; $i++)
         echo "</tr>";
         echo "<tr>";
     }
-    echo "<td>".$i."</td>";
+    echo "<td>".$i;
+
+    $query1 = "SELECT * FROM calendar.event WHERE start_date = '".$month['year']."-".$month['month']."-".$i."'";
+    $result1 = mysqli_query($conn, $query1) or die (mysqli_error($conn));
+    while ($event1 = mysqli_fetch_array($result1, MYSQLI_BOTH))
+    {
+        echo "<p align='left'>".$event1['name']."</p>";
+    }
+    echo "</td>";
 }
 
 # Display the days in the next month
 for ($i = 1; $i <= $month['days_after']; $i++)
 {
-    echo "<td><font color='grey'>".$i."</font></td>";
+    echo "<td><font color='grey'>".$i;
+    $query1 = "SELECT * FROM calendar.event WHERE start_date = '".$next_month['year']."-".$next_month['month']."-".$i."'";
+    $result1 = mysqli_query($conn, $query1) or die (mysqli_error($conn));
+    while ($event1 = mysqli_fetch_array($result1, MYSQLI_BOTH))
+    {
+        echo "<p align='left'>".$event1['name']."</p>";
+    }
+    echo "</font></td>";
 }
 echo "</tr>";
 echo "</table>";

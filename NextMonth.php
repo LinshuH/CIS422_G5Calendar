@@ -27,6 +27,13 @@ $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error conn
 # Start new session
 session_start();
 
+# Query to get previous month info
+$pm = $SESSION['pm'] + 1;
+$_SESSION['pm'] = $pm;
+$query = "SELECT * FROM calendar.month WHERE month_id = ".$pm;
+$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
+$prev_month = mysqli_fetch_array($result, MYSQLI_BOTH);
+
 # Query to get current month info
 $cm = $_SESSION['cm'] + 1;
 $_SESSION['cm'] = $cm;
@@ -34,14 +41,9 @@ $query = "SELECT * FROM calendar.month WHERE month_id = ".$cm;
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $month = mysqli_fetch_array($result, MYSQLI_BOTH);
 
-# Query to get previous month info
-$pm = $cm - 1;
-$query = "SELECT * FROM calendar.month WHERE month_id = ".$pm;
-$result = mysqli_query($conn, $query) or die (mysqli_error($conn));
-$prev_month = mysqli_fetch_array($result, MYSQLI_BOTH);
-
-# Query to get next month info
-$nm = $cm + 1;
+# Query to get current month info
+$nm = $_SESSION['nm'] + 1;
+$_SESSION['nm'] = $nm;
 $query = "SELECT * FROM calendar.month WHERE month_id = ".$nm;
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $next_month = mysqli_fetch_array($result, MYSQLI_BOTH);

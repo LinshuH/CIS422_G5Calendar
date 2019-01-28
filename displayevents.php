@@ -34,7 +34,6 @@ $prev_month = mysqli_fetch_array($result, MYSQLI_BOTH);
 
 # Query to get current month info
 $cm = 1;
-$_SESSION['cm'] = $cm;
 $query = "SELECT * FROM calendar.month WHERE month_id = ".$cm;
 $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $month = mysqli_fetch_array($result, MYSQLI_BOTH);

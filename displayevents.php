@@ -70,7 +70,9 @@ for ($i = ($prev_month['num_days'] - $month['days_before']) + 1; $i <= $prev_mon
     $result1 = mysqli_query($conn, $query1) or die (mysqli_error($conn));
     while ($event1 = mysqli_fetch_array($result1, MYSQLI_BOTH))
     {
-        echo "<p align='left'>".$event1['name']."</p>";
+        //echo "<p align='left'>".$event1['name']."</p>";
+        $event_name = $event1['name']+$event1['start_date']+$event1['end_date'];
+        <input type="button" value=$event_name onclick="location='EditEvent.php'" />
     }
     echo "</font></td>";
 }

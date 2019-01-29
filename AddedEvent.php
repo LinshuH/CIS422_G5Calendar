@@ -35,9 +35,20 @@ while ($row = mysqli_fetch_array($result, MYSQLI_BOTH))
 # Get information from previous page
 $name = $_POST['name'];
 $name = mysqli_real_escape_string($conn, $name);
-$start_date = $_POST['start_date'];
+
+#add information from date dropdown menus
+$start_year = $_POST['year'];
+$start_month = $_POST['month'];
+$start_day = $_POST['day'];
+$start_date = $start_year . "-" . $start_month . "-" . $start_day;
 $start_date = mysqli_real_escape_string($conn, $start_date);
-$end_date = $_POST['end_date'];
+
+$end_year = $_POST['eyear'];
+$end_month = $_POST['emonth'];
+$end_day = $_POST['eday'];
+$end_date = $end_year . "-" . $end_month . "-" . $end_day;
+$end_date = mysqli_real_escape_string($conn, $start_date);
+
 $end_date = mysqli_real_escape_string($conn, $end_date);
 $start_hour = $_POST['start_hour'];
 $start_hour = mysqli_real_escape_string($conn, $start_hour);
@@ -49,6 +60,8 @@ $end_minute = $_POST['end_minute'];
 $end_minute = mysqli_real_escape_string($conn, $end_minute);
 $description = $_POST['description'];
 $description = mysqli_real_escape_string($conn, $description);
+
+
 
 # Insert event into table
 $sql = "INSERT INTO `calendar`.`event` (`event_id`, `name`, `start_date`, `start_hour`, `start_minute`, `end_date`, `end_hour`, `end_minute`, `description`) VALUES ('$id', '$name', '$start_date', '$start_hour', '$start_minute', '$end_date', '$end_hour', '$end_minute', '$description');";

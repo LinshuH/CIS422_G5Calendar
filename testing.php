@@ -14,46 +14,45 @@ td { width:100px; height:100px; text-align: right; border: 1px solid black; bord
 </style>
 
 <style>
-.dropbtn {
-  background-color: #3498DB;
-  color: white;
-  padding: 8px;
-  font-size: 12px;
+.dropbtn
+{
+  background-color: lightgray;
+  color: black;
+  padding: 3px;
   border: none;
   cursor: pointer;
 }
 
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
-}
-
-.dropdown {
-  position: relative;
+.dropdown
+{
+  float: right;
+  position: absolute;
   display: inline-block;
 }
 
-.dropdown-content {
+.dropdown-content
+{
   display: none;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
   overflow: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  right: 0;
   z-index: 1;
 }
 
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
+  padding: 3px;
   text-decoration: none;
   display: block;
 }
 
 .dropdown a:hover {background-color: #ddd;}
 
-.show {display: block;}
+.show {display: block; display:relative; }
 </style>
-</head>
 
 <script>
 /* When the user clicks on the button, 
@@ -140,7 +139,7 @@ for ($i = ($prev_month['num_days'] - $month['days_before']) + 1; $i <= $prev_mon
                  <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/EditEvent.php'>Edit</a>
                  <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/DeleteEvent.php'>Delete</a>
                </div>
-               </div>";    
+               </div><br>";    
     }
     echo "</font></td>";
 }
@@ -153,13 +152,18 @@ for ($i = 1; $i <= $month['num_days']; $i++)
         echo "</tr>";
         echo "<tr>";
     }
-    echo "<td>".$i;
+    echo "<td>".$i."<br>";
 
     $query1 = "SELECT * FROM calendar.event WHERE start_date = '".$month['year']."-".$month['month']."-".$i."'";
     $result1 = mysqli_query($conn, $query1) or die (mysqli_error($conn));
     while ($event1 = mysqli_fetch_array($result1, MYSQLI_BOTH))
     {
-        echo "<p align='left'>".$event1['name']."</p>";
+   	    echo "<div class='dropdown'><button onclick='myFunction()' class='dropbtn'>".$event1['name']."</button>
+                 <div id='myDropdown' class='dropdown-content'>
+                 <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/EditEvent.php'>Edit</a>
+                 <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/DeleteEvent.php'>Delete</a>
+               </div>
+               </div><br>";    
     }
     echo "</td>";
 }
@@ -167,12 +171,17 @@ for ($i = 1; $i <= $month['num_days']; $i++)
 # Display the days in the next month
 for ($i = 1; $i <= $month['days_after']; $i++)
 {
-    echo "<td><font color='grey'>".$i;
+    echo "<td><font color='grey'>".$i."<br>";
     $query1 = "SELECT * FROM calendar.event WHERE start_date = '".$next_month['year']."-".$next_month['month']."-".$i."'";
     $result1 = mysqli_query($conn, $query1) or die (mysqli_error($conn));
     while ($event1 = mysqli_fetch_array($result1, MYSQLI_BOTH))
     {
-        echo "<p align='left'>".$event1['name']."</p>";
+   	    echo "<div class='dropdown'><button onclick='myFunction()' class='dropbtn'>".$event1['name']."</button>
+                 <div id='myDropdown' class='dropdown-content'>
+                 <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/EditEvent.php'>Edit</a>
+                 <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/DeleteEvent.php'>Delete</a>
+               </div>
+               </div><br>";    
     }
     echo "</font></td>";
 }

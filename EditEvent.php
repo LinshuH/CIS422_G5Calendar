@@ -46,77 +46,21 @@ $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
 $next_month = mysqli_fetch_array($result, MYSQLI_BOTH);
 
 # Display the month and year
-echo "<font size ='16'><b>".$month['name']."</b> ".$month['year']."</font>";
-
-# Display the day names
-echo "<table>";
-echo "<tr>";
-echo "<th>Sun</th>";
-echo "<th>Mon</th>";
-echo "<th>Tue</th>";
-echo "<th>Wed</th>";
-echo "<th>Thu</th>";
-echo "<th>Fri</th>";
-echo "<th>Sat</th>";
-echo  "</tr>";
-
-# Display the days in the previous month
-echo "<tr>";
-for ($i = ($prev_month['num_days'] - $month['days_before']) + 1; $i <= $prev_month['num_days']; $i++)
-{
-    echo "<td><font color='grey'>".$i;
-
-    $query1 = "SELECT * FROM calendar.event WHERE start_date = '".$prev_month['year']."-".$prev_month['month']."-".$i."'";
-    $result1 = mysqli_query($conn, $query1) or die (mysqli_error($conn));
-    while ($event1 = mysqli_fetch_array($result1, MYSQLI_BOTH))
-    {
-        echo "<p align='left'>".$event1['name']."</p>";
-    }
-    echo "</font></td>";
-}
-
-# Display the days in the current month
-for ($i = 1; $i <= $month['num_days']; $i++)
-{
-    if (($month['days_before'] + $i - 1) % 7 == 0)
-    {
-        echo "</tr>";
-        echo "<tr>";
-    }
-    echo "<td>".$i;
-
-    $query1 = "SELECT * FROM calendar.event WHERE start_date = '".$month['year']."-".$month['month']."-".$i."'";
-    $result1 = mysqli_query($conn, $query1) or die (mysqli_error($conn));
-    while ($event1 = mysqli_fetch_array($result1, MYSQLI_BOTH))
-    {
-        echo "<p align='left'>".$event1['name']."</p>";
-    }
-    echo "</td>";
-}
-
-# Display the days in the next month
-for ($i = 1; $i <= $month['days_after']; $i++)
-{
-    echo "<td><font color='grey'>".$i;
-    $query1 = "SELECT * FROM calendar.event WHERE start_date = '".$next_month['year']."-".$next_month['month']."-".$i."'";
-    $result1 = mysqli_query($conn, $query1) or die (mysqli_error($conn));
-    while ($event1 = mysqli_fetch_array($result1, MYSQLI_BOTH))
-    {
-        echo "<p align='left'>".$event1['name']."</p>";
-    }
-    echo "</font></td>";
-}
-echo "</tr>";
-echo "</table>";
+echo "<font size ='16'><b>".'Edit Event' ."</b></font>";
 
 # Close database connection
 mysqli_free_result($result);
 mysqli_close($conn);
 ?>
 
+<br>
+Current event information:
+<br>
+Update event information:
+
 <!-- Get Information for Adding an Event -->
 <form action="AddedEvent.php" method ="POST">
-New Event:<br><input type="text" name="name"><br>
+Updated Event Title:<br><input type="text" name="name"><br>
 Starting Date (YYYY/MM/DD):<br>
 <select name="start_date_year">
   <option value="2018">12 AM</option>
@@ -294,26 +238,9 @@ End Time: <br>
 </select>
 <br>
 Description:<br><input type="text" name="description"><br>
-<input type="submit" value="submit">
+<input type="submit" value="Update">
 </form>
 <br><br>
-
-<!-- Possible interactions with user -->
-<form action="NextMonth.php" method ="POST">
-<input type="submit" value="Next Month">
-</form>
-<form action="PreviousMonth.php" method ="POST">
-<input type="submit" value="Previous Month">
-</form>
-<form action="AddEvent.php" method ="POST">
-<input type="submit" value="Add Event">
-</form>
-<form action="EditEvent.php" method ="POST">
-<input type="submit" value="Edit Event">
-</form>
-<form action="DeleteEvent.php" method ="POST">
-<input type="submit" value="Delete Event">
-</form>
 
 </body>
 </html>

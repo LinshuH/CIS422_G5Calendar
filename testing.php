@@ -136,8 +136,8 @@ for ($i = ($prev_month['num_days'] - $month['days_before']) + 1; $i <= $prev_mon
     {
          echo "<div class='dropdown'><button onclick='myFunction()' class='dropbtn'>".$event1['name']."</button>
                  <div id='myDropdown' class='dropdown-content'>
-                 <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/EditEvent.php'>Edit</a>
-                 <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/DeleteEvent.php'>Delete</a>
+                 <a href='http://ix.cs.uoregon.edu/~dbeeman/422/CIS422_G5Calendar/EditEvent.php'>Edit</a>
+                 <a href='http://ix.cs.uoregon.edu/~dbeeman/422/CIS422_G5Calendar/DeleteEvent.php'>Delete</a>
                </div>
                </div><br>";    
     }
@@ -160,7 +160,7 @@ for ($i = 1; $i <= $month['num_days']; $i++)
     {
    	    echo "<div class='dropdown'><button onclick='myFunction()' class='dropbtn'>".$event1['name']."</button>
                  <div id='myDropdown' class='dropdown-content'>
-                 <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/EditEvent.php'>Edit</a>
+                 <a href='http://ix.cs.uoregon.edu/~dbeeman/422/CIS422_G5Calendar/EditEvent.php'>Edit</a>
                  <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/DeleteEvent.php'>Delete</a>
                </div>
                </div><br>";    
@@ -178,7 +178,7 @@ for ($i = 1; $i <= $month['days_after']; $i++)
     {
    	    echo "<div class='dropdown'><button onclick='myFunction()' class='dropbtn'>".$event1['name']."</button>
                  <div id='myDropdown' class='dropdown-content'>
-                 <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/EditEvent.php'>Edit</a>
+                 <a href='http://ix.cs.uoregon.edu/~dbeeman/422/CIS422_G5Calendar/EditEvent.php'>Edit</a>
                  <a href='http://ix.cs.uoregon.edu/~hhardin/CIS422_G5Calendar/DeleteEvent.php'>Delete</a>
                </div>
                </div><br>";    

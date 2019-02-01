@@ -8,6 +8,7 @@
 table { width:75%; height:75%; border-collapse: collapse; }
 th { text-align: right; }
 td { width:100px; height:100px; text-align: right; border: 1px solid black; border-collapse: collapse; vertical-align: top; }
+re { width:100px; height:100px; text-align: right; float:right; margin-top:0px;}
 </style>
 
 <?php
@@ -24,6 +25,11 @@ echo "<th>Thu</th>";
 echo "<th>Fri</th>";
 echo "<th>Sat</th>";
 echo  "</tr>";
+
+echo "<re><p align='left' style='background-color:red;'>High Priority</p></re>";
+echo "<re><p align='left' style='background-color:orange;'>Medium Priority</p></re>";
+echo "<re><p align='left' style='background-color:lightsalmon;'>Low Priority</p></re>";
+
 # Display the days in the previous month
 echo "<tr>";
 for ($i = ($prev_month['num_days'] - $current_month['days_before']) + 1; $i <= $prev_month['num_days']; $i++)
@@ -100,4 +106,5 @@ mysqli_free_result($prev_result);
 mysqli_free_result($current_result);
 mysqli_free_result($next_result);
 mysqli_close($conn);
+
 ?>

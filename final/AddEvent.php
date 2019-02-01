@@ -5,6 +5,7 @@
 <!-- [1]: Reference. URL: https://blackswan.ch/archives/811 -->
 <!-- [2]: Reference. URL: https://www.w3schools.com/php/func_mysqli_connect.asp -->
 <!-- [3]: Reference. URL: http://php.net/manual/en/reserved.variables.session.php -->
+<!-- [4]: Reference. URL: http://php.net/manual/en/mysqli.close.php -->
 <html>
 <body>
 
@@ -35,6 +36,8 @@ $_SESSION['current_index'] = $current_index;
 echo "<font size ='16'><b>Add Event</b></font>";
 # Include input to get event info
 include 'getaddinfo.php';
+# Close database connection [4]
+mysqli_close($conn);
 ?>
 
 </body>

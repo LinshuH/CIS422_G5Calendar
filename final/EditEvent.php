@@ -50,6 +50,8 @@ if ($event['end_minute'] < '10')
 else
    echo "<br>Current event end time: ".$event['end_hour'].":".$event['end_minute'];
 echo "<br>Current event description: ".$event['description'];
+echo "<br>Current event priority: ".$event['priority'];
+echo "<br>Current event category: ".$event['categories'];
 
 # Close database connection
 mysqli_free_result($result);

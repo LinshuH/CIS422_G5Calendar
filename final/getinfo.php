@@ -25,4 +25,8 @@ $end_minute = $_POST['end_minute'];
 $end_minute = mysqli_real_escape_string($conn, $end_minute);
 $description = $_POST['description'];
 $description = mysqli_real_escape_string($conn, $description);
+$category = $_POST['category'];
+$category = mysqli_real_escape_string($conn, $category);
+$priority = $_POST['priority'];
+$priority = mysqli_real_escape_string($conn, $priority);
 ?>

@@ -41,15 +41,17 @@ echo "<font size ='16'><b>Delete Event</b></font>";
 echo "<br>Event name: ".$event['name'];
 echo "<br>Event start date: ".$event['start_date'];
 if ($event['start_minute'] < '10')
-   echo "<br>Event start time: ".$event['start_hour'].":0".$event['start_minute'];
+   echo "<br>Event start time (24 Hour Clock): ".$event['start_hour'].":0".$event['start_minute'];
 else
-   echo "<br>Event start time: ".$event['start_hour'].":".$event['start_minute'];
+   echo "<br>Event start time (24 Hour Clock): ".$event['start_hour'].":".$event['start_minute'];
 echo "<br>Event end date: ".$event['start_date'];
 if ($event['end_minute'] < '10')
-   echo "<br>Event end time: ".$event['end_hour'].":0".$event['end_minute'];
+   echo "<br>Event end time (24 Hour Clock): ".$event['end_hour'].":0".$event['end_minute'];
 else
-   echo "<br>Event end time: ".$event['end_hour'].":".$event['end_minute'];
+   echo "<br>Event end time (24 Hour Clock): ".$event['end_hour'].":".$event['end_minute'];
 echo "<br>Event description: ".$event['description'];
+echo "<br>Event priority: ".$event['priority'];
+echo "<br>Event category: ".$event['categories'];
 echo "<form action='DeleteEventToDatabase.php' method ='POST'><input type='submit' value='submit'></form><br>";
 # Close database connection
 mysqli_free_result($result);

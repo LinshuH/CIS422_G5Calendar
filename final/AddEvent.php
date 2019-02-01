@@ -3,6 +3,8 @@
 <!-- This PHP file gets information for adding an event -->
 <!-- [0]: Reference. URL: https://www.w3schools.com/html/html_tables.asp -->
 <!-- [1]: Reference. URL: https://blackswan.ch/archives/811 -->
+<!-- [2]: Reference. URL: https://www.w3schools.com/php/func_mysqli_connect.asp -->
+<!-- [3]: Reference. URL: http://php.net/manual/en/reserved.variables.session.php -->
 <html>
 <body>
 
@@ -14,19 +16,19 @@ td { width:100px; height:100px; text-align: right; border: 1px solid black; bord
 </style>
 
 <?php
-# Connection data
+# Connection data [2]
 $server = "ix.cs.uoregon.edu";
 $user = "guest";
 $pass = "guest";
 $dbname = "calendar";
 $port = "3728";
-# Open database connection to MySQL server
+# Open database connection to MySQL server [2]
 $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error connecting to MySQL server.');
 # Start new session [1]
 header('Cache-Control: no cache'); 
 session_cache_limiter('private_no_expire'); 
 session_start();
-# Pass along the index of the current month being displayed
+# Pass along the index of the current month being displayed [3]
 $current_index = $_SESSION['current_index'];
 $_SESSION['current_index'] = $current_index;
 # Display the purpose of the page (Add Event)

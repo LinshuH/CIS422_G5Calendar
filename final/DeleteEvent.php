@@ -50,6 +50,8 @@ if ($event['end_minute'] < '10')
 else
    echo "<br>Event end time: ".$event['end_hour'].":".$event['end_minute'];
 echo "<br>Event description: ".$event['description'];
+echo "<br>Event priority: ".$event['priority'];
+echo "<br>Event category: ".$event['categories'];
 echo "<form action='DeleteEventToDatabase.php' method ='POST'><input type='submit' value='submit'></form><br>";
 # Close database connection
 mysqli_free_result($result);

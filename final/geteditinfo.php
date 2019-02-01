@@ -1,6 +1,16 @@
+<!-- Authors: Holly (HH), Daniel (DB) -->
+<!-- This page pulls event information to be edited and presents drop down menus to update event information -->
+<!-- This page works with EditEvent.php and EditEventToDatabase.php once the information is updated -->
+
+
+
 <?php
 echo
+<!-- The information is sent to EditEventToDatabase.php -->
 "<form action='EditEventToDatabase.php' method ='POST'>
+
+<!-- A text field to allow the user input the name of the updated event.-->
+
 <br>Event name:<br><input type='text' name='name'>
 <br>
 <br>Starting Date (YYYY/MM/DD):<br>
@@ -10,6 +20,9 @@ echo
   <option value='2021'>2021</option>
   <option value='2022'>2022</option>
 </select>
+
+<!-- A drop down menu allowing the user to select a month -->
+
 <select name='start_month'>
   <option value='01'>January</option>
   <option value='02'>February</option>
@@ -24,6 +37,9 @@ echo
   <option value='11'>November</option>
   <option value='12'>December</option>
 </select>
+
+<!-- A drop down menu allowing the user to select a day -->
+
 <select name='start_day'>
   <option value='01'>1</option>
   <option value='02'>2</option>
@@ -57,6 +73,9 @@ echo
   <option value='30'>30</option>
   <option value='31'>31</option>
 </select>
+
+<!-- A drop down menu allowing the user select a starting hour of the event -->
+
 <br>Start Time: <br>
 <select name='start_hour'>
   <option value='00'>12 AM</option>
@@ -84,6 +103,9 @@ echo
   <option value='22'>10 PM</option>
   <option value='23'>11 PM</option>
 </select>
+
+<!-- A drop down menu allowing the user select a starting minute of the event -->
+
 <select name='start_minute'>
   <option value='00'>00</option>
   <option value='15'>15</option>
@@ -91,6 +113,9 @@ echo
   <option value='45'>45</option>
 </select>
 <br>
+
+<!-- A drop down menu allowing the user select an ending year of the event -->
+
 <br>Ending Date (YYYY/MM/DD):<br>
 <select name='end_year'>
   <option value='2019'>2019</option>
@@ -98,6 +123,9 @@ echo
   <option value='2021'>2021</option>
   <option value='2022'>2022</option>
 </select>
+
+<!-- A drop down menu allowing the user select an ending month of the event -->
+
 <select name='end_month'>
   <option value='01'>January</option>
   <option value='02'>February</option>
@@ -112,6 +140,9 @@ echo
   <option value='11'>November</option>
   <option value='12'>December</option>
 </select>
+
+<!-- A drop down menu allowing the user select an ending day of the event -->
+
 <select name='end_day'>
   <option value='01'>1</option>
   <option value='02'>2</option>
@@ -145,6 +176,9 @@ echo
   <option value='30'>30</option>
   <option value='31'>31</option>
 </select>
+
+<!-- A drop down menu allowing the user select an ending hour of the event -->
+
 <br>End Time: <br>
 <select name='end_hour'>
   <option value='00'>12 AM</option>
@@ -172,6 +206,9 @@ echo
   <option value='22'>10 PM</option>
   <option value='23'>11 PM</option>
 </select>
+
+<!-- A drop down menu allowing the user select an ending minute of the event -->
+
 <select name='end_minute'>
   <option value='00'>00</option>
   <option value='15'>15</option>
@@ -179,6 +216,9 @@ echo
   <option value='45'>45</option>
 </select>
 <br>
+
+<!-- A text field to allow the user to enter a description for the event -->
+
 <br>Description:<br><input type='text' name='description'>
 <br><input type='submit' value='submit'>
 </form>

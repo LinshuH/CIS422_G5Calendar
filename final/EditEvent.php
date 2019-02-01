@@ -44,7 +44,7 @@ if ($event['start_minute'] < '10')
    echo "<br>Current event start time (24 Hour Clock): ".$event['start_hour'].":0".$event['start_minute'];
 else
    echo "<br>Current event start time: ".$event['start_hour'].":".$event['start_minute'];
-echo "<br>Current event end date (24 Hour Clock): ".$event['start_date'];
+echo "<br>Current event end date: ".$event['start_date'];
 if ($event['end_minute'] < '10')
    echo "<br>Current event end time (24 Hour Clock): ".$event['end_hour'].":0".$event['end_minute'];
 else

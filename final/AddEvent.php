@@ -25,17 +25,22 @@ $dbname = "calendar";
 $port = "3728";
 # Open database connection to MySQL server [2]
 $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error connecting to MySQL server.');
+
 # Start new session [1]
 header('Cache-Control: no cache'); 
 session_cache_limiter('private_no_expire'); 
 session_start();
+
 # Pass along the index of the current month being displayed [3]
 $current_index = $_SESSION['current_index'];
 $_SESSION['current_index'] = $current_index;
+
 # Display the purpose of the page (Add Event)
 echo "<font size ='16'><b>Add Event</b></font>";
+
 # Include input to get event info
 include 'getaddinfo.php';
+
 # Close database connection [4]
 mysqli_close($conn);
 ?>

@@ -35,8 +35,6 @@ echo "<font size ='16'><b>Add Event</b></font>";
 <?php
 # Include input to get event info
 include 'getaddinfo.php';
-# Include buttons (next month, previous month, add event, edit event, delete event
-include 'buttons.php';
 ?>
 
 </body>

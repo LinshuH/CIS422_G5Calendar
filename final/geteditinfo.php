@@ -5,8 +5,12 @@ echo
 <!-- A text field to allow the user input the name of an event -->
 <br>Event Name:<br><input type='text' name='name'>
 <br>
+<<<<<<< HEAD
 <br>Starting Date (YYYY/MM/DD):<br>
 <!-- A drop down menu allowing the user select a year -->
+=======
+<br>Date (YYYY/MM/DD):<br>
+>>>>>>> Daniel
 <select name='start_year'>
   <option value='2019'>2019</option>
   <option value='2020'>2020</option>
@@ -62,8 +66,12 @@ echo
   <option value='30'>30</option>
   <option value='31'>31</option>
 </select>
+<<<<<<< HEAD
 <br>Start Time: <br>
 <!-- A drop down menu allowing the user select a starting hour of the event -->
+=======
+<br>Time: <br>
+>>>>>>> Daniel
 <select name='start_hour'>
   <option value='00'>12 AM</option>
   <option value='1'>1 AM</option>
@@ -98,6 +106,7 @@ echo
   <option value='45'>45</option>
 </select>
 <br>
+<<<<<<< HEAD
 <br>Ending Date (YYYY/MM/DD):<br>
 <!-- A drop down menu allowing the user select an ending year of the event -->
 <select name='end_year'>
@@ -190,6 +199,8 @@ echo
   <option value='30'>30</option>
   <option value='45'>45</option>
 </select>
+=======
+>>>>>>> Daniel
 <br>
 <!-- A text field to allow the user to enter a description for the event -->
 <br>Description:<br><input type='text' name='description'>

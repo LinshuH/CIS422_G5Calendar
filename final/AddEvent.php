@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Authors: Holly -->
+<!-- Authors: Holly (HH), Daniel (DB) -->
 <!-- This PHP file gets information for adding an event -->
 <!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
 <!-- Reference: URL: https://blackswan.ch/archives/811 -->

@@ -8,6 +8,7 @@
 table { width:75%; height:75%; border-collapse: collapse; }
 th { text-align: right; }
 td { width:100px; height:100px; text-align: right; border: 1px solid black; border-collapse: collapse; vertical-align: top; }
+re { width:100px; height:100px; text-align: right; float:right; margin-top:0px;}
 </style>
 
 <?php
@@ -24,6 +25,11 @@ echo "<th>Thu</th>";
 echo "<th>Fri</th>";
 echo "<th>Sat</th>";
 echo  "</tr>";
+
+echo "<re><p align='left' style='background-color:red;'>High Priority</p></re>";
+echo "<re><p align='left' style='background-color:orange;'>Medium Priority</p></re>";
+echo "<re><p align='left' style='background-color:lightsalmon;'>Low Priority</p></re>";
+
 # Display the days in the previous month
 echo "<tr>";
 for ($i = ($prev_month['num_days'] - $current_month['days_before']) + 1; $i <= $prev_month['num_days']; $i++)
@@ -33,7 +39,15 @@ for ($i = ($prev_month['num_days'] - $current_month['days_before']) + 1; $i <= $
     $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
     while ($event = mysqli_fetch_array($result, MYSQLI_BOTH))
     {
-        echo "<p align='left'>".$event['name']."</p>";
+        if ($event['priority'] == 'High') {
+            echo "<p align='left' style='background-color:red;'>".$event['name']. "</p><br>";
+        }
+        elseif($event['priority'] == 'Medium') {
+            echo "<p align='left' style='background-color:orange;'>".$event['name']. "</p><br>";
+        }
+        elseif($event['priority'] == 'Low') {
+            echo "<p align='left' style='background-color:lightsalmon;'>".$event['name']. "</p><br>";
+        }    
     }
     echo "</font></td>";
     mysqli_free_result($result);
@@ -51,7 +65,15 @@ for ($i = 1; $i <= $current_month['num_days']; $i++)
     $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
     while ($event = mysqli_fetch_array($result, MYSQLI_BOTH))
     {
-        echo "<p align='left'>".$event['name']."</p>";
+        if ($event['priority'] == 'High') {
+            echo "<p align='left' style='background-color:red;'>".$event['name']. "</p><br>";
+        }
+        elseif($event['priority'] == 'Medium') {
+            echo "<p align='left' style='background-color:orange;'>".$event['name']. "</p><br>";
+        }
+        elseif($event['priority'] == 'Low') {
+            echo "<p align='left' style='background-color:lightsalmon;'>".$event['name']. "</p><br>";
+        }
     }
     echo "</td>";
     mysqli_free_result($result);
@@ -64,7 +86,15 @@ for ($i = 1; $i <= $current_month['days_after']; $i++)
     $result = mysqli_query($conn, $query) or die (mysqli_error($conn));
     while ($event = mysqli_fetch_array($result, MYSQLI_BOTH))
     {
-        echo "<p align='left'>".$event['name']."</p>";
+        if ($event['priority'] == 'High') {
+            echo "<p align='left' style='background-color:red;'>".$event['name']. "</p><br>";
+        }
+        elseif($event['priority'] == 'Medium') {
+            echo "<p align='left' style='background-color:orange;'>".$event['name']. "</p><br>";
+        }
+        elseif($event['priority'] == 'Low') {
+            echo "<p align='left' style='background-color:lightsalmon;'>".$event['name']. "</p><br>";
+        }    
     }
     echo "</font></td>";
     mysqli_free_result($result);
@@ -76,4 +106,5 @@ mysqli_free_result($prev_result);
 mysqli_free_result($current_result);
 mysqli_free_result($next_result);
 mysqli_close($conn);
+
 ?>

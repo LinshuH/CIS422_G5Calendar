@@ -41,15 +41,17 @@ echo "<font size ='16'><b>Edit Event</b></font>";
 echo "<br>Current event name: ".$event['name'];
 echo "<br>Current event start date: ".$event['start_date'];
 if ($event['start_minute'] < '10')
-   echo "<br>Current event start time: ".$event['start_hour'].":0".$event['start_minute'];
+   echo "<br>Current event start time (24 Hour Clock): ".$event['start_hour'].":0".$event['start_minute'];
 else
    echo "<br>Current event start time: ".$event['start_hour'].":".$event['start_minute'];
 echo "<br>Current event end date: ".$event['start_date'];
 if ($event['end_minute'] < '10')
-   echo "<br>Current event end time: ".$event['end_hour'].":0".$event['end_minute'];
+   echo "<br>Current event end time (24 Hour Clock): ".$event['end_hour'].":0".$event['end_minute'];
 else
-   echo "<br>Current event end time: ".$event['end_hour'].":".$event['end_minute'];
+   echo "<br>Current event end time (24 Hour Clock): ".$event['end_hour'].":".$event['end_minute'];
 echo "<br>Current event description: ".$event['description'];
+echo "<br>Current event priority: ".$event['priority'];
+echo "<br>Current event category: ".$event['categories'];
 
 # Close database connection
 mysqli_free_result($result);

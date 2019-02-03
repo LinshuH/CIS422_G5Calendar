@@ -99,7 +99,7 @@ echo
 <br>
 <br>
 <!-- A text field to allow the user to enter a description for the event -->
-<br>Description:<br><input type='text' name='description'>
+Description:<br><input type='text' name='description'>
 <br><br>Priority:<br>
 <!-- A drop down menu allowing the user to select a priority for the event -->
 <select name='priority'>
@@ -114,6 +114,8 @@ echo
   <option value='Home'>Home</option>
   <option value='Play'>Play</option>
 </select>
-<br><br><input type='submit' value='submit'>
+<br><br><input type='submit' value='Update Event'>
+</form><form action='DisplayCalendar.php' method='POST'>
+<input type='submit' value='Cancel'>
 </form>
 <br><br>";

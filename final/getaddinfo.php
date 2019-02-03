@@ -114,6 +114,7 @@ echo
   <option value='Home'>Home</option>
   <option value='Play'>Play</option>
 </select>
-<br><br><input type='submit' value='submit'>
-</form>
+<br><br><input type='submit' value='Add Event'>
+</form><form action='DisplayCalendar.php' method='POST'></form>
+<input type='submit' value='Cancel'></form>
 <br><br>";

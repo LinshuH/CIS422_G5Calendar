@@ -41,7 +41,8 @@ while ($event = mysqli_fetch_array($result, MYSQLI_BOTH))
 {
 	echo "<option value='".$event['event_id']."'>".$event['name']."</option>";
 }
-echo "</select><br><input type='submit' value='submit'></form>";
+echo "</select><br><br><input type='submit' value='Select'></form>";
+echo "<form action='DisplayCalendar.php' method='POST'><input type='submit' value='Cancel'></form><br>";
 # Close database connection
 mysqli_free_result($result);
 mysqli_close($conn);

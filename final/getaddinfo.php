@@ -1,20 +1,24 @@
+<!-- Authors: Holly, Daniel -->
+<!-- [0]: Reference. URL: https://www.w3schools.com/tags/att_button_formmethod.asp -->
+<!-- [1]: Reference. URL: https://www.w3schools.com/tags/tag_select.asp -->
+<!-- [2]: Reference. URL: https://www.w3schools.com/html/html_forms.asp -->
+
 <?php
-echo
-"<!-- The information is sent to AddEventToDatabase.php -->
-<form action='AddEventToDatabase.php' method ='POST'>
-<!-- A text field to allow the user input the name of an event -->
-<br>Event Name:<br><input type='text' name='name'>
-<br>
-<br>Date (YYYY/MM/DD):<br>
-<!-- A drop down menu allowing the user select a year -->
+# Send information to AddEventToDatabase.php [0]
+echo "<form action='AddEventToDatabase.php' method ='POST'>";
+# Display text field to allow the user to input the name of an event [2]
+echo "<br>Event Name:<br><input type='text' name='name'><br>";
+# Display a drop down menu to allow the user to select a year [1]
+echo "<br>Date (YYYY/MM/DD):<br>
 <select name='start_year'>
   <option value='2019'>2019</option>
   <option value='2020'>2020</option>
   <option value='2021'>2021</option>
   <option value='2022'>2022</option>
-</select>
-<!-- A drop down menu allowing the user select a month -->
-<select name='start_month'>
+</select>";
+# Display a drop down menu to allow the user to select a month [1]
+echo
+"<select name='start_month'>
   <option value='01'>January</option>
   <option value='02'>February</option>
   <option value='03'>March</option>
@@ -27,9 +31,10 @@ echo
   <option value='10'>October</option>
   <option value='11'>November</option>
   <option value='12'>December</option>
-</select>
-<!-- A drop down menu allowing the user select a day -->
-<select name='start_day'>
+</select>";
+# Display a drop down menu to allow the user to select a day [1]
+echo
+"<select name='start_day'>
   <option value='01'>1</option>
   <option value='02'>2</option>
   <option value='03'>3</option>
@@ -61,9 +66,10 @@ echo
   <option value='29'>29</option>
   <option value='30'>30</option>
   <option value='31'>31</option>
-</select>
-<br>Time: <br>
-<!-- A drop down menu allowing the user select a starting hour of the event -->
+</select>";
+# Display a drop down menu to allow the user to select an hour [1]
+echo
+"<br>Time: <br>
 <select name='start_hour'>
   <option value='00'>12 AM</option>
   <option value='1'>1 AM</option>
@@ -89,32 +95,38 @@ echo
   <option value='21'>9 PM</option>
   <option value='22'>10 PM</option>
   <option value='23'>11 PM</option>
-</select>
-<!-- A drop down menu allowing the user select a starting minute of the event -->
-<select name='start_minute'>
+</select>";
+# Display a drop down menu to allow the user to select a minute [1]
+echo
+"<select name='start_minute'>
   <option value='00'>00</option>
   <option value='15'>15</option>
   <option value='30'>30</option>
   <option value='45'>45</option>
-</select>
-<br>
-<!-- A text field to allow the user to enter a description for the event -->
-<br>Description:<br><input type='text' name='description'>
-<br><br>Priority:<br>
-<!-- A drop down menu allowing the user to select a priority for the event -->
+</select>";
+# Display a text field to allow the user to enter a description for the event [2]
+echo 
+"<br><br>Description:<br><input type='text' name='description'>";
+# Display a drop down menu to allow the user to enter a priority for the event [1]
+echo
+"<br><br>Priority:<br>
 <select name='priority'>
   <option value='Low'>Low</option>
   <option value='Medium'>Medium</option>
   <option value='High'>High</option>
-</select>
-<br>Category:<br>
+</select>";
+# Display a drop down menu to allow the user to enter a category for the event [1]
+echo
+"<br>Category:<br>
 <!-- A drop down menu allowing the user to select a category for the event -->
 <select name='category'>
   <option value='Work'>Work</option>
   <option value='Home'>Home</option>
   <option value='Play'>Play</option>
-</select>
-<br><br><input type='submit' value='Add Event'>
-</form><form action='DisplayCalendar.php' method='POST'></form>
-<input type='submit' value='Cancel'></form>
-<br><br>";
+</select>";
+# Display button for adding the event [0]
+echo
+"<br><br><input type='submit' value='Add Event'></form>";
+# Display button for cancelling the addition of the event [0]
+echo "<form action='DisplayCalendar.php' method='POST'>";
+echo "<input type='submit' value='Cancel'></form><br><br>";

@@ -25,18 +25,18 @@ $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error conn
 # Start new session
 session_start();
 # Query to get previous month info
-$prev_index = 0;
+$prev_index = 1;
 $prev_query = "SELECT * FROM calendar.month WHERE month_id = ".$prev_index;
 $prev_result = mysqli_query($conn, $prev_query) or die (mysqli_error($conn));
 $prev_month = mysqli_fetch_array($prev_result, MYSQLI_BOTH);
 # Query to get current month info
-$current_index = 1;
+$current_index = 2;
 $_SESSION['current_index'] = $current_index;
 $current_query = "SELECT * FROM calendar.month WHERE month_id = ".$current_index;
 $current_result = mysqli_query($conn, $current_query) or die (mysqli_error($conn));
 $current_month = mysqli_fetch_array($current_result, MYSQLI_BOTH);
 # Query to get next month info
-$next_index = 2;
+$next_index = 3;
 $next_query = "SELECT * FROM calendar.month WHERE month_id = ".$next_index;
 $next_result = mysqli_query($conn, $next_query) or die (mysqli_error($conn));
 $next_month = mysqli_fetch_array($next_result, MYSQLI_BOTH);

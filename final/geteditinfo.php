@@ -1,3 +1,15 @@
+<!-- 
+Authors: Holly Daniel
+Generate Date: 1/30/2019
+Function: 
+    To keep the consistancy, "getaddinfo.php" edit event has the same interface with add moduel.
+Citation:
+    [0]: Reference. URL: https://www.w3schools.com/tags/att_button_formmethod.asp
+    [1]: Reference. URL: https://www.w3schools.com/tags/tag_select.asp
+    [2]: Reference. URL: https://www.w3schools.com/html/html_forms.asp 
+-->
+
+
 <?php
 echo
 "<!-- The information is sent to EditEventToDatabase.php -->

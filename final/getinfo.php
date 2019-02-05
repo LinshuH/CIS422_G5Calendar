@@ -1,3 +1,11 @@
+<!-- 
+Authors: Holly
+Generate Date: 1/30/2019
+Function: 
+    This page define all the session variable for passing all the data may require by different moduels.
+-->
+
+
 <?php
 $name = $_POST['name'];
 $name = mysqli_real_escape_string($conn, $name);

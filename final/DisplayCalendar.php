@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<!-- Authors: Holly -->
-<!-- This PHP file displays a calendar and displays events -->
-<!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
-<!-- Reference: URL: https://blackswan.ch/archives/811 -->
+<!-- 
+Authors: Holly
+Generate Date: 1/30/2019
+Function:
+    This PHP file is the main interface user will see.
+    Function including display the current month grid, events in the current month, different function moduels
+Reference:
+    [0]: Reference. URL:  https://www.w3schools.com/html/html_tables.asp
+    [1]: Reference. URL:  https://blackswan.ch/archives/811 
+-->
 <html>
 <body>
 

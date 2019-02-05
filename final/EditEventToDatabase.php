@@ -1,8 +1,15 @@
 <!DOCTYPE html>
-<!-- Authors: Holly -->
-<!-- This PHP file deletes and adds an event to a databaste -->
-<!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
-<!-- Reference: URL: https://blackswan.ch/archives/811 -->
+<!-- 
+Authors: Holly
+Generate Date: 1/30/2019
+Function:
+	Invoked by "EditEvent.php". 
+    After get user's confirmation, this php file call "deletequery.php" first to delete the original event from database.
+    Then, create a new event based on the update information and the original information
+Citation:
+	[0]: Reference. URL:  https://www.w3schools.com/html/html_tables.asp
+	[1]: Reference. URL:  https://blackswan.ch/archives/811 
+-->
 <html>
 <body>
 

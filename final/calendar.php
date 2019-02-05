@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<!-- Authors: Holly -->
-<!-- This PHP file displays a calendar and displays events -->
-<!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
+<!-- 
+Authors: Holly Linshu
+Generate Date: 1/30/2019
+Function:
+    This PHP file mainly read the current month events from the database. 
+    Meanwhile, the calendar grid may contain few days from the last month and this month. This file also handle these considerations.
+Citation:
+    [0]: Reference. URL:  https://www.w3schools.com/html/html_tables.asp 
+-->
 
 <!-- Style for calendar -->
 <style>

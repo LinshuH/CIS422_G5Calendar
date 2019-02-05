@@ -1,7 +1,13 @@
 <!DOCTYPE html>
-<!-- Authors: Holly -->
-<!-- This PHP file displays a calendar and displays events -->
-<!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
+<!-- 
+Authors: Holly 
+Generate Date: 1/30/2019
+Function: 
+    This php file display the function moduel in the whole program. 
+    These modeul are displayed in the button forms. Click the button would involke the specific module function.
+Citation:
+    [0]: Reference. URL: https://www.w3schools.com/html/html_tables.asp 
+-->
 <?php
 echo
 "<form action='NextMonth.php' method ='POST'>

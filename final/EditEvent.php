@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<!-- Authors: Holly -->
-<!-- This PHP file gets information for editing an event -->
-<!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
-<!-- Reference: URL: https://blackswan.ch/archives/811 -->
+<!-- 
+Authors: Holly
+Generate Date: 1/30/2019
+Function:
+	Invoked by "ChooseEventToEdit.php", after user select the event, this will display the event one more time for user to double check.
+   If the user confirm and click "submit" it will invoke next page "EditEventToDatabase.php" to delete event from database
+Citation:
+	[0]: Reference. URL:  https://www.w3schools.com/html/html_tables.asp
+	[1]: Reference. URL:  https://blackswan.ch/archives/811 
+-->
 <html>
 <body>
 

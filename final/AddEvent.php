@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<!-- Authors: Holly -->
-<!-- This PHP file gets information for adding an event -->
-<!-- [0]: Reference. URL: https://www.w3schools.com/html/html_tables.asp -->
-<!-- [1]: Reference. URL: https://blackswan.ch/archives/811 -->
-<!-- [2]: Reference. URL: https://www.w3schools.com/php/func_mysqli_connect.asp -->
-<!-- [3]: Reference. URL: http://php.net/manual/en/reserved.variables.session.php -->
-<!-- [4]: Reference. URL: http://php.net/manual/en/mysqli.close.php -->
+<!-- 
+Authors: Holly
+Generate Date: 1/30/2019
+Function: 
+    This PHP file gets information for adding an event. It is invoked when then usuer click "Add Event"
+in the main page (DisplayCalendar.php) 
+Citation:
+    [0]: Reference. URL: https://www.w3schools.com/html/html_tables.asp
+    [1]: Reference. URL: https://blackswan.ch/archives/811
+    [2]: Reference. URL: https://www.w3schools.com/php/func_mysqli_connect.asp
+    [3]: Reference. URL: http://php.net/manual/en/reserved.variables.session.php
+    [4]: Reference. URL: http://php.net/manual/en/mysqli.close.php 
+-->
 <html>
 <body>
 

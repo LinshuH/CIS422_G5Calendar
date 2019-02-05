@@ -1,3 +1,16 @@
+<!-- 
+Authors: Holly Daniel
+Generate Date: 1/30/2019
+Function: 
+    This file define the interface grid, including display month, date, selecting date and time for creating an event.
+Citation:
+    [0]: Reference. URL: https://www.w3schools.com/tags/att_button_formmethod.asp
+    [1]: Reference. URL: https://www.w3schools.com/tags/tag_select.asp
+    [2]: Reference. URL: https://www.w3schools.com/html/html_forms.asp 
+-->
+
+
+
 <?php
 echo
 "<!-- The information is sent to AddEventToDatabase.php -->

@@ -1,8 +1,14 @@
 <!DOCTYPE html>
-<!-- Authors: Holly -->
-<!-- This PHP file gets information for editing an event -->
-<!-- Reference: URL: https://www.w3schools.com/html/html_tables.asp -->
-<!-- Reference: URL: https://blackswan.ch/archives/811 -->
+<!-- 
+Authors: Holly
+Generate Date: 1/30/2019
+Function:
+	This PHP file contain MySQL query to read all the events from the database
+	By display all the events in a dropdown menu, it allow user to select the event to EDIT
+Citation:
+	[0]: Reference. URL:  https://www.w3schools.com/html/html_tables.asp
+	[1]: Reference. URL:  https://blackswan.ch/archives/811 
+-->
 <html>
 <body>
 

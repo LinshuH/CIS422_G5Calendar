@@ -1,5 +1,11 @@
-<!-- Authors: Holly -->
-<!-- [0]: Reference. URL: https://www.w3schools.com/php/php_mysql_insert.asp ->
+<!-- 
+Authors: Holly 
+Generate Date: 1/30/2019
+Function: 
+    This is the Mysql query to send the session variable to the database (i.e. add event to database)
+Citation:
+    [0]: Reference. URL: https://www.w3schools.com/php/php_mysql_insert.asp 
+->
 
 <?php
 # Query to insert an event into the database

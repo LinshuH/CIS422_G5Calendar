@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<!-- Authors: Holly -->
-<!-- This PHP file adds information to the database -->
-<!-- [0]: Reference. URL: https://www.w3schools.com/html/html_tables.asp -->
-<!-- [1]: Reference. URL: https://blackswan.ch/archives/811 -->
-<!-- [2]: Reference. URL: https://www.w3schools.com/php/func_mysqli_connect.asp -->
-<!-- [3]: Reference. URL: http://php.net/manual/en/reserved.variables.session.php -->
-<!-- [4]: Reference. URL: http://php.net/manual/en/mysqli.close.php -->
-<!-- [5]: Reference. URL: http://php.net/manual/en/mysqli.query.php -->
-<!-- [6]: Reference. URL: http://php.net/manual/en/mysqli-result.fetch-array.php -->
+<!-- 
+Authors: Holly
+Generate Date: 1/30/2019
+Function:
+    This PHP file contain the mysql query to send information to the database
+Citation:
+    [0]: Reference. URL: https://www.w3schools.com/html/html_tables.asp 
+    [1]: Reference. URL: https://blackswan.ch/archives/811 
+    [2]: Reference. URL: https://www.w3schools.com/php/func_mysqli_connect.asp 
+    [3]: Reference. URL: http://php.net/manual/en/reserved.variables.session.php 
+    [4]: Reference. URL: http://php.net/manual/en/mysqli.close.php 
+    [5]: Reference. URL: http://php.net/manual/en/mysqli.query.php 
+    [6]: Reference. URL: http://php.net/manual/en/mysqli-result.fetch-array.php 
+-->
 <html>
 <body>
 

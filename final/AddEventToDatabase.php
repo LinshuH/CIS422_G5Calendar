@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!-- 
-Authors: Holly
+Authors: Holly (HH)
 Generate Date: 1/30/2019
 Function:
-    This PHP file contain the mysql query to send information to the database
+    This PHP file contain the mysql query to send information to the database and displays the updated calendar
 Citation:
     [0]: Reference. URL: https://www.w3schools.com/html/html_tables.asp 
     [1]: Reference. URL: https://blackswan.ch/archives/811 
@@ -13,6 +13,7 @@ Citation:
     [5]: Reference. URL: http://php.net/manual/en/mysqli.query.php 
     [6]: Reference. URL: http://php.net/manual/en/mysqli-result.fetch-array.php 
 -->
+
 <html>
 <body>
 
@@ -33,6 +34,15 @@ $port = "3728";
 # Open database connection [2]
 $conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error connecting to MySQL server.');
 
+# Start new session [1]
+header('Cache-Control: no cache');
+session_cache_limiter('private_no_expire');
+session_start();
+
+# Get and pass along the index of the current month being displayed [3]
+$current_index = $_SESSION['current_index'];
+$_SESSION['current_index'] = $current_index;
+
 # Query to get highest event id from database
 $query = "SELECT MAX(event_id) AS event_id FROM calendar.event";
 # Submit query to database [5]
@@ -42,32 +52,11 @@ $row = mysqli_fetch_array($result, MYSQLI_BOTH);
 # Save the event id as the highest event id from database + 1
 $event_id = $row['event_id'] + 1;
 
-# Get information from previous page
+# Include the information passed from previous page (AddEvent.php)
 include 'getinfo.php';
-# Insert event into table
+# Include the query that adds the event to the calendar
 include 'addquery.php';
-# Close database connection [4]
-mysqli_close($conn);
-?>
 
-<?php
-# Connection data [2]
-$server = "ix.cs.uoregon.edu";
-$user = "guest";
-$pass = "guest";
-$dbname = "calendar";
-$port = "3728";
-# Open database connection [2]
-$conn = mysqli_connect($server, $user, $pass, $dbname, $port) or die('Error connecting to MySQL server.');
-
-# Start new session [1]
-header('Cache-Control: no cache'); 
-session_cache_limiter('private_no_expire'); 
-session_start();
-
-# Pass along the index of the current month being displayed [3]
-$current_index = $_SESSION['current_index'];
-$_SESSION['current_index'] = $current_index;
 # Query to get the current month from database
 $current_query = "SELECT * FROM calendar.month WHERE month_id = ".$current_index;
 # Submit query to database [5]
@@ -97,6 +86,7 @@ $next_month = mysqli_fetch_array($next_result, MYSQLI_BOTH);
 include 'calendar.php';
 # Include buttons (next month, previous month, add event, edit event, delete event
 include 'buttons.php';
+
 # Close database connection [4]
 mysqli_close($conn);
 ?>
